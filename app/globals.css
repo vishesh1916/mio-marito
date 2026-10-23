@@ -1,26 +1,298 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   MIO MARITO GELATO — TUSCAN RENAISSANCE EDITORIAL DESIGN SYSTEM
+   Pixel-faithful recreation of reference editorial canvas
+   ========================================================================== */
+
+@theme {
+  /* Brand Palette from Master Prompt */
+  --color-parchment: #F1EBDD;
+  --color-parchment-light: #F7F3EB;
+  --color-parchment-dark: #E4DCB7;
+  --color-cream: #E6DDC8;
+  --color-cream-soft: #F4EFE6;
+  --color-espresso: #38251F;
+  --color-espresso-deep: #251611;
+  --color-espresso-light: #4D3830;
+  --color-terracotta: #984B3B;
+  --color-terracotta-light: #B25F4E;
+  --color-terracotta-dark: #7A372A;
+  --color-olive: #737A5A;
+  --color-olive-light: #8E9672;
+  --color-olive-dark: #585F42;
+  --color-renaissance-blue: #879DA0;
+  --color-renaissance-blue-light: #A1B5B8;
+  --color-renaissance-blue-dark: #5E7579;
+  --color-brass: #B59A68;
+  --color-brass-light: #CBB486;
+  --color-brass-dark: #9A7E4F;
+  --color-charcoal: #292521;
+  --color-wine: #42121D;
+  --color-wine-dark: #2F0C14;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-roman: 'Cinzel', 'Cormorant Garamond', serif;
+  --font-script: 'Pinyon Script', 'Alex Brush', cursive;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ==========================================================================
+   BASE & TYPOGRAPHY STYLES
+   ========================================================================== */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+  background-color: #1A120E;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-serif);
+  color: var(--color-espresso);
+  background-color: transparent;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-brass-light);
+  color: var(--color-espresso-deep);
+}
+
+/* Typography Utility Classes */
+.font-script {
+  font-family: var(--font-script), 'Pinyon Script', cursive;
+}
+
+.font-serif {
+  font-family: var(--font-serif), 'Cormorant Garamond', serif;
+}
+
+.font-roman {
+  font-family: var(--font-roman), 'Cinzel', serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), 'DM Sans', sans-serif;
+}
+
+/* ==========================================================================
+   EDITORIAL CANVAS & SHADOW
+   ========================================================================== */
+
+.editorial-canvas {
+  background-color: #F4EFE6;
+  box-shadow: 
+    0 0 0 1px rgba(181, 154, 104, 0.25),
+    0 15px 45px rgba(25, 12, 8, 0.45),
+    0 35px 90px rgba(15, 8, 5, 0.35);
+  position: relative;
+}
+
+/* Subtle aged paper grain */
+.paper-grain {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(244, 239, 230, 0.96) 0%, rgba(235, 227, 214, 0.94) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Antique Double Line Border */
+.antique-border {
+  border: 1px solid rgba(181, 154, 104, 0.45);
+  position: relative;
+}
+
+.antique-border::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(181, 154, 104, 0.25);
+  pointer-events: none;
+}
+
+/* Antique Picture Frame */
+.antique-frame {
+  padding: 6px;
+  background: linear-gradient(135deg, #CBB486 0%, #9A7E4F 50%, #B59A68 100%);
+  box-shadow: 
+    0 4px 14px rgba(56, 37, 31, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.antique-frame-inner {
+  border: 1px solid rgba(181, 154, 104, 0.4);
+  background-color: #F1EBDD;
+}
+
+/* Antique Oval Frame with Beaded Gold Bezel */
+.oval-frame-gold {
+  border-radius: 50%;
+  padding: 6px;
+  background: 
+    linear-gradient(135deg, #ECC880 0%, #B8934E 25%, #8B6B32 50%, #D4AF67 75%, #A17D38 100%);
+  box-shadow: 
+    0 8px 24px rgba(45, 26, 19, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.oval-frame-gold::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  border: 1px dotted rgba(255, 248, 220, 0.75);
+  pointer-events: none;
+}
+
+/* Delicate filigree horizontal rule */
+.filigree-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.filigree-rule::before,
+.filigree-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(181, 154, 104, 0.4), transparent);
+}
+
+/* ==========================================================================
+   BUTTONS & TABS — EDITORIAL & RESTRAINED
+   Replaced generic AI pill shapes with tailored editorial geometry
+   ========================================================================== */
+
+.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 3px;
+  background-color: var(--color-terracotta);
+  color: #FAF6EF;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.22s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 2px 8px rgba(152, 75, 59, 0.25);
+  cursor: pointer;
+}
+
+.btn-editorial-primary:hover {
+  background-color: var(--color-terracotta-dark);
+  border-color: rgba(230, 194, 128, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(152, 75, 59, 0.35);
+}
+
+.btn-editorial-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 3px;
+  background-color: #FAF5E8;
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.22s ease-in-out;
+  border: 1px solid rgba(181, 154, 104, 0.55);
+  box-shadow: 0 1px 4px rgba(56, 37, 31, 0.08);
+  cursor: pointer;
+}
+
+.btn-editorial-secondary:hover {
+  background-color: #FFFFFF;
+  border-color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(56, 37, 31, 0.12);
+}
+
+/* Archival Menu Tabs */
+.menu-tab-btn {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-tab-active {
+  background-color: #38251F;
+  color: #FAF5E8;
+  border: 1px solid #38251F;
+  box-shadow: 0 2px 6px rgba(56, 37, 31, 0.2);
+}
+
+.menu-tab-inactive {
+  background-color: rgba(244, 239, 230, 0.85);
+  color: #38251F;
+  border: 1px solid rgba(181, 154, 104, 0.4);
+}
+
+.menu-tab-inactive:hover {
+  background-color: #FAF5E8;
+  border-color: #984B3B;
+  color: #984B3B;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   LIGHTBOX & MODAL
+   ========================================================================== */
+
+.lightbox-backdrop {
+  background-color: rgba(18, 11, 8, 0.94);
+  backdrop-filter: blur(8px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A120E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brass-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
 }

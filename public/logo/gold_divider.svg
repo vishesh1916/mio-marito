@@ -1,0 +1,27 @@
+<svg width="220" height="24" viewBox="0 0 220 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="divGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CAA563" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#CAA563" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#E5C788" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#CAA563" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#CAA563" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Central Diamond Motif -->
+  <polygon points="110,7 115,12 110,17 105,12" fill="#E5C788" stroke="#8E6C30" stroke-width="0.6"/>
+  <circle cx="110" cy="12" r="1.5" fill="#FAF5EA"/>
+
+  <!-- Left & Right Diamond Accents -->
+  <polygon points="98,9 101,12 98,15 95,12" fill="#CAA563"/>
+  <polygon points="122,9 125,12 122,15 119,12" fill="#CAA563"/>
+
+  <!-- Horizontal Whiskers / Lines -->
+  <line x1="20" y1="12" x2="94" y2="12" stroke="url(#divGold)" stroke-width="1"/>
+  <line x1="126" y1="12" x2="200" y2="12" stroke="url(#divGold)" stroke-width="1"/>
+
+  <!-- Delicate End Terminals -->
+  <circle cx="20" cy="12" r="1.2" fill="#CAA563" opacity="0.8"/>
+  <circle cx="200" cy="12" r="1.2" fill="#CAA563" opacity="0.8"/>
+</svg>
