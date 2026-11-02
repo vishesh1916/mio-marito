@@ -2,6 +2,7 @@
 
 import { BotanicalSprig } from "./BotanicalAccents";
 import OrnamentalLace from "./OrnamentalLace";
+import ScrollReveal from "./animations/ScrollReveal";
 
 export default function VisitSection() {
   return (
@@ -40,14 +41,14 @@ export default function VisitSection() {
 
         <div className="max-w-[760px] mx-auto relative z-10">
           {/* Floating Botanical Sprig Decoration matching reference */}
-          <div className="flex justify-center mb-1 opacity-80">
+          <ScrollReveal variant="scaleUp" duration={0.6} className="flex justify-center mb-1 opacity-80">
             <BotanicalSprig className="w-8 h-8" />
-          </div>
+          </ScrollReveal>
 
-          {/* Two Balanced Editorial Columns: When / Where directly over Sea Waves */}
+          {/* Two Balanced Editorial Columns: When / Where */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 text-center mt-4">
             {/* WHEN COLUMN */}
-            <div className="flex flex-col items-center">
+            <ScrollReveal variant="fadeRight" delay={0.1} className="flex flex-col items-center">
               <h2 className="font-script text-5xl sm:text-6xl text-[#984B3B] mb-2 tracking-wide drop-shadow-[0_1px_3px_rgba(255,255,255,0.7)]">
                 When
               </h2>
@@ -69,10 +70,10 @@ export default function VisitSection() {
               <p className="font-serif italic text-xs text-[#251611]/75 max-w-[220px]">
                 Walk-ins warmly welcomed for artisanal gelato, espresso &amp; quiet afternoons.
               </p>
-            </div>
+            </ScrollReveal>
 
             {/* WHERE COLUMN */}
-            <div className="flex flex-col items-center">
+            <ScrollReveal variant="fadeLeft" delay={0.15} className="flex flex-col items-center">
               <h2 className="font-script text-5xl sm:text-6xl text-[#984B3B] mb-2 tracking-wide drop-shadow-[0_1px_3px_rgba(255,255,255,0.7)]">
                 Where
               </h2>
@@ -94,54 +95,38 @@ export default function VisitSection() {
               <p className="font-serif italic text-xs text-[#251611]/75 max-w-[240px]">
                 Beneath the historic arcade colonnade &middot; Hazratganj, Lucknow
               </p>
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Action Buttons: Directions, Call, WhatsApp */}
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <ScrollReveal variant="fadeUp" delay={0.25} className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8 pt-4">
             <a
-              href="https://www.google.com/maps/dir//Mio+Marito+Gelato,+84,+Ashok+Marg,+Hazratganj,+Lucknow,+Uttar+Pradesh+226001/@26.8488988,80.9503807,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x399bfdea37ac3ead:0x64ee65da18deb79f!2m2!1d80.9466053!2d26.8474713?entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
+              href="https://www.google.com/maps/dir//Mio+Marito+Gelato,+84,+Ashok+Marg,+Hazratganj,+Lucknow,+Uttar+Pradesh+226001/@26.8488988,80.9503807,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x399bfdea37ac3ead:0x64ee65da18deb79f!2m2!1d80.9466053!2d26.8474713?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-editorial-primary text-xs flex items-center gap-2 shadow-md"
+              className="btn-editorial-primary group shadow-md"
             >
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Get Directions</span>
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-[#FAF6EF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 21s-6.5-5.3-6.5-9.5A6.5 6.5 0 0 1 12 5a6.5 6.5 0 0 1 6.5 6.5c0 4.2-6.5 9.5-6.5 9.5z" />
+                  <circle cx="12" cy="11.5" r="2.2" />
+                </svg>
+                Get Directions
+              </span>
             </a>
 
             <a
               href="tel:+919876543210"
-              className="btn-editorial-secondary text-xs flex items-center gap-1.5 shadow-sm"
+              className="btn-editorial-secondary group"
             >
-              <svg className="w-3.5 h-3.5 text-[#984B3B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <span>Call Café</span>
+              <span className="flex items-center gap-2">
+                <svg className="w-3.5 h-3.5 text-[#984B3B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Call the Caffè
+              </span>
             </a>
-
-            <a
-              href="https://wa.me/919876543210?text=Hi%20Mio%20Marito,%20I'd%20like%20to%20know%20more%20about%20today's%20gelato%20flavours!"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-editorial-secondary text-xs flex items-center gap-1.5 shadow-sm"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-600 inline-block" />
-              <span>WhatsApp</span>
-            </a>
-
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-editorial-secondary text-xs flex items-center gap-1.5 shadow-sm"
-            >
-              <span className="text-[#984B3B]">@</span>
-              <span>Instagram</span>
-            </a>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

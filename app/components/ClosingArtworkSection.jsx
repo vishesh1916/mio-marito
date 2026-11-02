@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function ClosingArtworkSection() {
   const scrollToTop = () => {
@@ -11,8 +12,16 @@ export default function ClosingArtworkSection() {
     <section className="relative w-full overflow-hidden">
       {/* Renaissance Illustrated Concluding Artwork Container matching reference's bottom scene */}
       <div className="relative w-full min-h-[520px] sm:min-h-[580px] overflow-hidden flex flex-col items-center justify-between pt-10 sm:pt-14 pb-0">
-        {/* Real Café Interior Framing the Invitation Card (Grand Chandelier & Roman Arches) */}
-        <div className="absolute inset-0 w-full h-full">
+        {/* Real Café Interior with Slow Breathing Zoom */}
+        <motion.div
+          animate={{ scale: [1, 1.04, 1] }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute inset-0 w-full h-full"
+        >
           <Image
             src="/images/gallery-chandelier.jpg"
             alt="Interior of Mio Marito Gelato cafe with grand chandelier and Renaissance frescoes"
@@ -21,15 +30,21 @@ export default function ClosingArtworkSection() {
             sizes="(max-width: 840px) 100vw, 840px"
             quality={95}
           />
-        </div>
+        </motion.div>
 
         {/* Soft Warm Ambient Vignette Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#1C120B]/95 via-[#1C120B]/50 to-[#1C120B]/40 pointer-events-none" />
 
-        {/* Deep Burgundy Invitation Envelope Container matching reference */}
-        <div className="relative z-10 w-full max-w-[280px] sm:max-w-[320px] shadow-2xl rounded-t-sm my-auto">
+        {/* Deep Burgundy Invitation Envelope Container with Slide Up & Unfold Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 w-full max-w-[280px] sm:max-w-[320px] shadow-2xl rounded-t-sm my-auto group"
+        >
           {/* Envelope Card Inside (Parchment Cream) */}
-          <div className="bg-[#FAF5E8] border border-[#B59A68]/40 p-6 sm:p-7 text-center rounded-t-sm shadow-md">
+          <div className="bg-[#FAF5E8] border border-[#B59A68]/40 p-6 sm:p-7 text-center rounded-t-sm shadow-md transition-transform duration-500 group-hover:-translate-y-1">
             {/* Top Official Gelato Cup Monogram */}
             <div className="w-9 h-9 mx-auto mb-2 rounded-full border border-[#B59A68]/60 flex items-center justify-center bg-white/70 overflow-hidden shadow-xs">
               <Image
@@ -45,7 +60,7 @@ export default function ClosingArtworkSection() {
               Benvenuti a Lucknow
             </p>
 
-            <h3 className="font-script text-3xl sm:text-4xl text-[#984B3B] tracking-wide mb-1">
+            <h3 className="font-script text-3xl sm:text-4xl text-[#984B3B] tracking-wide mb-1 drop-shadow-[0_0_12px_rgba(202,165,99,0.35)]">
               Ci vediamo presto.
             </h3>
 
@@ -57,11 +72,11 @@ export default function ClosingArtworkSection() {
               <span className="text-[#B59A68] text-[8px]">✦</span>
             </div>
 
-            {/* Subtle Final Action Links */}
+            {/* Final Action Links */}
             <div className="flex items-center justify-center gap-4 text-xs font-serif pt-1">
               <a
                 href="#menu"
-                className="text-[#984B3B] hover:underline font-medium"
+                className="text-[#984B3B] hover:underline font-medium hover:text-[#CAA563] transition-colors"
               >
                 Explore Menu
               </a>
@@ -70,7 +85,7 @@ export default function ClosingArtworkSection() {
                 href="https://www.google.com/maps/dir//Mio+Marito+Gelato,+84,+Ashok+Marg,+Hazratganj,+Lucknow,+Uttar+Pradesh+226001/@26.8488988,80.9503807,11z/data=!4m8!4m7!1m0!1m5!1m1!1s0x399bfdea37ac3ead:0x64ee65da18deb79f!2m2!1d80.9466053!2d26.8474713?entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#984B3B] hover:underline font-medium"
+                className="text-[#984B3B] hover:underline font-medium hover:text-[#CAA563] transition-colors"
               >
                 Directions
               </a>
@@ -84,6 +99,7 @@ export default function ClosingArtworkSection() {
                 src="/logo/hero_logo_light_hd.png"
                 alt="Mio Marito Gelato"
                 fill
+                sizes="144px"
                 className="object-contain"
               />
             </div>
@@ -91,9 +107,9 @@ export default function ClosingArtworkSection() {
               Gelateria &middot; Hazratganj
             </span>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Integrated Archival Footer — Directly anchored at base of Renaissance artwork, NO separate white box */}
+        {/* Integrated Archival Footer */}
         <footer className="relative z-10 w-full pt-10 pb-6 px-6 text-center text-[#FAF5E8]/80 text-xs font-serif bg-gradient-to-t from-[#1C120B]/95 via-[#1C120B]/75 to-transparent">
           <div className="max-w-[760px] mx-auto space-y-2.5">
             {/* Footer Logo Wordmark Light */}
@@ -103,6 +119,7 @@ export default function ClosingArtworkSection() {
                   src="/logo/hero_logo_light_hd.png"
                   alt="Mio Marito Gelato"
                   fill
+                  sizes="144px"
                   className="object-contain"
                 />
               </div>
@@ -123,7 +140,7 @@ export default function ClosingArtworkSection() {
               </a>
               <span>&middot;</span>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/miomaritogelato.india/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#E6C280] transition-colors"
@@ -132,6 +149,7 @@ export default function ClosingArtworkSection() {
               </a>
               <span>&middot;</span>
               <button
+                type="button"
                 onClick={scrollToTop}
                 className="hover:text-[#E6C280] transition-colors cursor-pointer"
               >

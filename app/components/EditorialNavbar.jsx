@@ -8,9 +8,9 @@ const navItems = [
   { label: "Home", href: "#top" },
   { label: "Entrance", href: "#entrance" },
   { label: "Our Story", href: "#story" },
-  { label: "The Art of Café", href: "#art-of-cafe" },
   { label: "Il Menù", href: "#menu" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Press & Notes", href: "#press" },
   { label: "Visit", href: "#visit" },
 ];
 
@@ -352,12 +352,12 @@ export default function EditorialNavbar() {
                   </a>
                   <span className="text-[#B59A68]/30">·</span>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/miomaritogelato.india/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#E6C280] transition-colors"
                   >
-                    @miomaritogelato
+                    @miomaritogelato.india
                   </a>
                 </motion.div>
               </div>

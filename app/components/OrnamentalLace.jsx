@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 /**
  * OrnamentalLace Component
- * Recreates the delicate ivory lace/filigree band separator from the reference screenshot.
+ * Recreates the delicate ivory lace/filigree band separator with a subtle gold shimmer sweep.
  * It features scalloped loops, floral eyelets, and picot drops in soft pale ivory (#FAF7EE).
  */
 export default function OrnamentalLace({ className = "" }) {
@@ -14,7 +14,7 @@ export default function OrnamentalLace({ className = "" }) {
       aria-hidden="true"
     >
       {/* Repeating Lace Band Container */}
-      <div className="relative w-full h-[32px] md:h-[40px] flex items-center justify-center">
+      <div className="relative w-full h-[32px] md:h-[40px] flex items-center justify-center overflow-hidden">
         {/* Real seamless lace texture from reference as background pattern */}
         <div 
           className="absolute inset-0 w-full h-full opacity-95"
@@ -59,6 +59,22 @@ export default function OrnamentalLace({ className = "" }) {
           </defs>
           <rect width="100%" height="100%" fill="url(#lacePattern)" />
         </svg>
+
+        {/* Subtle Gold Shimmer Sweep across the lace */}
+        <motion.div
+          animate={{ x: ["-100%", "250%"] }}
+          transition={{
+            duration: 2.4,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatDelay: 4,
+          }}
+          className="absolute inset-y-0 w-2/3 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(230, 194, 128, 0.4) 50%, transparent 100%)",
+          }}
+        />
 
         {/* Soft top and bottom shadow edges */}
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#CBB486]/30 to-transparent" />

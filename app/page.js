@@ -3,9 +3,9 @@ import EditorialNavbar from "./components/EditorialNavbar";
 import EditorialHero from "./components/EditorialHero";
 import EntranceSection from "./components/EntranceSection";
 import StorySection from "./components/StorySection";
-import ArtOfCafeSection from "./components/ArtOfCafeSection";
 import MenuSection from "./components/MenuSection";
 import StepInsideGallery from "./components/StepInsideGallery";
+import SocialProofSection from "./components/SocialProofSection";
 import AtmosphereSection from "./components/AtmosphereSection";
 import VisitSection from "./components/VisitSection";
 import ClosingArtworkSection from "./components/ClosingArtworkSection";
@@ -14,41 +14,40 @@ import MobileStickyBar from "./components/MobileStickyBar";
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      {/* 1. Full-page fixed Renaissance Artwork Background (Botticelli's The Birth of Venus) */}
+      {/* 1. Full-page fixed Renaissance Artwork Background with subtle parallax */}
       <RenaissanceBackground />
 
       {/* 2. Organized High-Contrast Editorial Navigation Bar */}
       <EditorialNavbar />
 
       {/* 3. Narrow, Vertically Oriented Central Editorial Canvas */}
-      {/* Target width ~840px matching reference screenshot proportions */}
       <div className="relative z-10 w-full max-w-[840px] mx-auto min-h-screen my-0 sm:my-6 md:my-10 editorial-canvas paper-grain rounded-none sm:rounded-[3px] overflow-hidden border-x sm:border border-[#D8CEBA]/60 shadow-[0_20px_70px_rgba(0,0,0,0.6)]">
         <main>
-          {/* Section 1: The Masterpiece Hero Section (Landscape, Cameo, Typography & Lace Separator) */}
+          {/* Section 1: Hero Section */}
           <EditorialHero />
 
-          {/* Section 2: The Entrance at Hazratganj (Featuring 2nd Image) */}
+          {/* Section 2: Entrance Section */}
           <EntranceSection />
 
-          {/* Section 3: The Café Story (Featuring 5th Image & Antique Gold Oval Frame) */}
+          {/* Section 3: Café Story Section */}
           <StorySection />
 
-          {/* Section 4: The Art of the Italian Café (Timeline & Botanical Flower) */}
-          <ArtOfCafeSection />
-
-          {/* Section 5: The Menu ("Il Menù" with Real Artisanal Pozzetti Photo) */}
+          {/* Section 4: The Menu Section */}
           <MenuSection />
 
-          {/* Section 6: Step Inside (Curated Gallery of ALL Real Café Photographs with Lightbox) */}
+          {/* Section 5: Step Inside Gallery Section */}
           <StepInsideGallery />
 
-          {/* Section 7: The Café Atmosphere (Featuring 4th Image: Arched Niche Wall & Chandelier) */}
+          {/* Section 6: Press, guest notes, and Instagram */}
+          <SocialProofSection />
+
+          {/* Section 7: The Café Atmosphere Section */}
           <AtmosphereSection />
 
-          {/* Section 8: Visit Us ("When / Where" Two-Column Reference Composition) */}
+          {/* Section 8: Visit Us Section */}
           <VisitSection />
 
-          {/* Section 9: The Final Artwork & Editorial Closing (Envelope & Footer) */}
+          {/* Section 9: Closing Artwork & Envelope Section */}
           <ClosingArtworkSection />
         </main>
       </div>

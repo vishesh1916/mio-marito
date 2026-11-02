@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import ScrollReveal, { StaggerChild } from "./animations/ScrollReveal";
 
 export default function EntranceSection() {
   const [peekInside, setPeekInside] = useState(false);
@@ -10,8 +11,8 @@ export default function EntranceSection() {
   return (
     <section id="entrance" className="relative w-full py-16 sm:py-20 px-6 sm:px-12 bg-[#F4EFE6] overflow-hidden">
       <div className="max-w-[760px] mx-auto">
-        {/* Section Heading */}
-        <div className="text-center mb-10">
+        {/* Section Heading with Staggered Scroll Reveal */}
+        <ScrollReveal variant="fadeUp" className="text-center mb-10">
           <p className="font-script text-3xl sm:text-4xl text-[#984B3B] mb-1">
             L&apos;Ingresso a Hazratganj
           </p>
@@ -24,7 +25,7 @@ export default function EntranceSection() {
           <p className="font-serif italic text-sm sm:text-base text-[#38251F]/75 max-w-lg mx-auto">
             Strolling down the storied arcade of Hazratganj, you are greeted by cornflower blue arches, illuminated baroque gold, and the sweet aroma of waffle cones.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Interactive Entrance Architectural Display */}
         <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-[3px] overflow-hidden antique-frame shadow-xl group">
@@ -34,17 +35,17 @@ export default function EntranceSection() {
               {!peekInside ? (
                 <motion.div
                   key="entrance"
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 0.8 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.4 }}
                   className="relative w-full h-full"
                 >
                   <Image
                     src="/cafe/entrance.jpg"
                     alt="Real Entrance of Mio Marito Gelato in Hazratganj with blue arches and glowing signboard"
                     fill
-                    className="object-cover object-center filter contrast-[1.04]"
+                    className="object-cover object-center filter contrast-[1.04] group-hover:scale-102 transition-transform duration-700 ease-out"
                     sizes="(max-width: 840px) 100vw, 840px"
                     priority
                   />
@@ -55,10 +56,10 @@ export default function EntranceSection() {
               ) : (
                 <motion.div
                   key="inside"
-                  initial={{ opacity: 0, scale: 1.03 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.03 }}
-                  transition={{ duration: 0.5 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
                   className="relative w-full h-full"
                 >
                   <Image
@@ -84,8 +85,9 @@ export default function EntranceSection() {
             {/* Bottom Bar: Peek Inside Switch Button */}
             <div className="absolute bottom-3 right-3 z-30">
               <button
+                type="button"
                 onClick={() => setPeekInside(!peekInside)}
-                className="bg-[#251611]/92 hover:bg-[#251611] text-[#FAF5E8] border border-[#B59A68]/60 px-3.5 py-1.5 rounded-[2px] text-[0.68rem] font-sans font-medium tracking-[0.14em] uppercase transition-all shadow-md flex items-center gap-1.5 cursor-pointer backdrop-blur-xs"
+                className="bg-[#251611]/92 hover:bg-[#251611] text-[#FAF5E8] border border-[#B59A68]/60 px-3.5 py-1.5 rounded-[2px] text-[0.68rem] font-sans font-medium tracking-[0.14em] uppercase transition-all shadow-md flex items-center gap-1.5 cursor-pointer backdrop-blur-xs hover:border-[#E6C280]"
               >
                 <span>{peekInside ? "← View Storefront" : "Peek Inside Doors →"}</span>
               </button>
@@ -93,33 +95,40 @@ export default function EntranceSection() {
           </div>
         </div>
 
-        {/* Architectural Narrative Details */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8 pt-6 border-t border-[#B59A68]/20 text-center">
-          <div>
+        {/* Architectural Narrative Details Cascading In */}
+        <ScrollReveal
+          variant="fadeUp"
+          staggerChildren={0.12}
+          delay={0.15}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8 pt-6 border-t border-[#B59A68]/20 text-center"
+        >
+          <StaggerChild>
             <h4 className="font-roman text-xs font-semibold text-[#38251F] uppercase tracking-wider">
               Historic Colonnade
             </h4>
-            <p className="font-serif text-xs text-[#38251F]/70 mt-1">
-              Set into Hazratganj&apos;s Victorian arches, blending European cafe heritage with Lucknow&apos;s culture.
+            <p className="font-serif italic text-xs text-[#38251F]/75 mt-1">
+              Set beneath Hazratganj&apos;s heritage British &amp; Awadhi neoclassical arches.
             </p>
-          </div>
-          <div>
+          </StaggerChild>
+
+          <StaggerChild>
             <h4 className="font-roman text-xs font-semibold text-[#38251F] uppercase tracking-wider">
-              Hand-Painted Murals
+              Cornflower &amp; Gold
             </h4>
-            <p className="font-serif text-xs text-[#38251F]/70 mt-1">
-              Custom frescoes frame both the arched doorway and the Amalfi coast window display.
+            <p className="font-serif italic text-xs text-[#38251F]/75 mt-1">
+              Custom blue-lacquered exterior framing the warm luminescence of the interior.
             </p>
-          </div>
-          <div>
+          </StaggerChild>
+
+          <StaggerChild>
             <h4 className="font-roman text-xs font-semibold text-[#38251F] uppercase tracking-wider">
-              Fresh Daily Atmosphere
+              Open Daily
             </h4>
-            <p className="font-serif text-xs text-[#38251F]/70 mt-1">
-              Warm brass sconces and Italian music welcome walk-in visitors from morning till night.
+            <p className="font-serif italic text-xs text-[#38251F]/75 mt-1">
+              11:00 AM &ndash; 11:00 PM for cones, cups, affogato, and takeaway boxes.
             </p>
-          </div>
-        </div>
+          </StaggerChild>
+        </ScrollReveal>
       </div>
     </section>
   );
